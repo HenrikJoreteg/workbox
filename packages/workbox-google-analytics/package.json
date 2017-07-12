@@ -10,20 +10,23 @@
     "offline",
     "analytics"
   ],
-  "author": {
-    "name": "Jeff Posnick",
-    "email": "jeffy@google.com",
-    "url": "https://jeffy.info"
-  },
+  "files": [
+    "src",
+    "build"
+  ],
   "scripts": {
     "prepublish": "gulp build --project workbox-google-analytics"
   },
+  "author": "Google's Web DevRel Team",
   "license": "Apache-2.0",
   "repository": "googlechrome/workbox",
   "bugs": "https://github.com/googlechrome/workbox/issues",
   "homepage": "https://github.com/GoogleChrome/workbox/tree/master/packages/workbox-google-analytics",
-  "files": [
-    "build"
-  ],
-  "main": "build/importScripts/workbox-google-analytics.prod.v1.1.0.js"
+  "devDependencies": {
+    "workbox-background-sync": "^1.1.0",
+    "workbox-routing": "^1.1.0",
+    "workbox-runtime-caching": "^1.1.0"
+  },
+  "main": "build/importScripts/workbox-google-analytics.prod.v1.0.0.js",
+  "module": "build/modules/workbox-google-analytics.prod.v1.0.0.mjs"
 }

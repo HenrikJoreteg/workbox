@@ -2,10 +2,11 @@
   "browser": {
     "scripts": [
       "/node_modules/mockdate/src/mockdate.js",
+      "/node_modules/sinon/pkg/sinon.js",
+      "/__test/bundle/workbox-google-analytics",
       "/packages/workbox-google-analytics/build/test/constants.js",
       "/packages/workbox-google-analytics/build/test/idb-helper.js",
-      "/packages/workbox-google-analytics/build/test/replay-queued-requests.js",
-      "/packages/workbox-google-analytics/build/test/enqueue-request.js"
+      "/packages/workbox-background-sync/build/test/background-sync-queue-plugin.js"
     ]
   }
 }
