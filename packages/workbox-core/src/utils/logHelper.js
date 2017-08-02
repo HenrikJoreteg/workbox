@@ -7,17 +7,24 @@ class LogHelper {
   get LOG_LEVELS() {
     return {
       verbose: 0,
-      debug: 1,
-      warning: 2,
-      error: 3,
+      warning: 1,
+      error: 2,
     };
   }
 
   log() {
+    if (this.logLevel > this.LOG_LEVELS.version) {
+      return;
+    }
+
     console.log(...arguments);
   }
 
   warn() {
+    if (this.logLevel > this.LOG_LEVELS.warning) {
+      return;
+    }
+
     console.warn(...arguments);
   }
 
