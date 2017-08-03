@@ -16,5 +16,8 @@
   "scripts": {
     "pretest": "node ../../infra/build-test-bundle.js",
     "test": "mocha './test/bundle-build/**/*.js'"
+  },
+  "devDependencies": {
+    "nyc": "^11.1.0"
   }
 }

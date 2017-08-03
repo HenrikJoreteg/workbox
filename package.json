@@ -4,7 +4,8 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "local-lerna": "lerna"
+    "local-lerna": "lerna",
+    "test": "echo 'TODO: Fix up package tests.'"
   },
   "version": "0.0.0",
   "description": "Top-level scripts and dependencies for the workbox monorepo. Not meant to be published to npm.",

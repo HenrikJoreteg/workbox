@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const rollup = require('rollup');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
-const replace = require('rollup-plugin-replace')
+const replace = require('rollup-plugin-replace');
 const glob = require('glob');
 const path = require('path-extra');
 const fs = require('fs-extra');
@@ -52,14 +52,12 @@ const buildBundle = (inputFilePath, outputFilePath, nodeEnv) => {
       plugins,
     })
     .then((bundle) => {
-      return bundle.generate({
+      return bundle.write({
+        dest: outputFilePath,
         format: 'iife',
+        sourceMap: 'inline',
       });
-    })
-    .then((result) => {
-      fs.ensureDirSync(path.dirname(outputFilePath));
-      fs.writeFileSync(outputFilePath, result.code);
-    })
+    });
 };
 
 // Run each test file through Rollup
