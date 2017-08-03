@@ -212,4 +212,128 @@ describe(`logHelper [${process.env.NODE_ENV}]`, function() {
       expect(console.debug.callCount).to.equal(0);
     });
   });
+
+  describe('.warn()', function() {
+    it('should work without input', function() {
+      const stub = sinon.spy(console, 'warn');
+      stubs.push(stub);
+
+      logHelper.warn();
+
+      expect(console.warn.callCount).to.equal(1);
+      expect(console.warn.calledWithMatch()).to.equal(true);
+    });
+
+    it('should work several inputs', function() {
+      const stub = sinon.spy(console, 'warn');
+      stubs.push(stub);
+
+      logHelper.warn('', 'test', null, undefined, [], {});
+
+      expect(console.warn.callCount).to.equal(1);
+      expect(console.warn.calledWithMatch('', 'test', null, undefined, [], {})).to.equal(true);
+    });
+
+    it('should log with verbose log level', function() {
+      const stub = sinon.spy(console, 'warn');
+      stubs.push(stub);
+
+      logHelper.logLevel = logHelper.LOG_LEVELS.verbose;
+      logHelper.warn('test');
+
+      expect(console.warn.callCount).to.equal(1);
+    });
+
+    it('should log with debug log level', function() {
+      const stub = sinon.spy(console, 'warn');
+      stubs.push(stub);
+
+      logHelper.logLevel = logHelper.LOG_LEVELS.debug;
+      logHelper.warn('test');
+
+      expect(console.warn.callCount).to.equal(1);
+    });
+
+    it('should log with warning log level', function() {
+      const stub = sinon.spy(console, 'warn');
+      stubs.push(stub);
+
+      logHelper.logLevel = logHelper.LOG_LEVELS.warning;
+      logHelper.warn('test');
+
+      expect(console.warn.callCount).to.equal(1);
+    });
+
+    it('should not log with error log level', function() {
+      const stub = sinon.spy(console, 'warn');
+      stubs.push(stub);
+
+      logHelper.logLevel = logHelper.LOG_LEVELS.error;
+      logHelper.warn('test');
+
+      expect(console.warn.callCount).to.equal(0);
+    });
+  });
+
+  describe('.error()', function() {
+    it('should work without input', function() {
+      const stub = sinon.spy(console, 'error');
+      stubs.push(stub);
+
+      logHelper.error();
+
+      expect(console.error.callCount).to.equal(1);
+      expect(console.error.calledWithMatch()).to.equal(true);
+    });
+
+    it('should work several inputs', function() {
+      const stub = sinon.spy(console, 'error');
+      stubs.push(stub);
+
+      logHelper.error('', 'test', null, undefined, [], {});
+
+      expect(console.error.callCount).to.equal(1);
+      expect(console.error.calledWithMatch('', 'test', null, undefined, [], {})).to.equal(true);
+    });
+
+    it('should log with verbose log level', function() {
+      const stub = sinon.spy(console, 'error');
+      stubs.push(stub);
+
+      logHelper.logLevel = logHelper.LOG_LEVELS.verbose;
+      logHelper.error('test');
+
+      expect(console.error.callCount).to.equal(1);
+    });
+
+    it('should log with error log level', function() {
+      const stub = sinon.spy(console, 'error');
+      stubs.push(stub);
+
+      logHelper.logLevel = logHelper.LOG_LEVELS.debug;
+      logHelper.error('test');
+
+      expect(console.error.callCount).to.equal(1);
+    });
+
+    it('should log with warning log level', function() {
+      const stub = sinon.spy(console, 'error');
+      stubs.push(stub);
+
+      logHelper.logLevel = logHelper.LOG_LEVELS.warning;
+      logHelper.error('test');
+
+      expect(console.error.callCount).to.equal(1);
+    });
+
+    it('should log with error log level', function() {
+      const stub = sinon.spy(console, 'error');
+      stubs.push(stub);
+
+      logHelper.logLevel = logHelper.LOG_LEVELS.error;
+      logHelper.error('test');
+
+      expect(console.error.callCount).to.equal(1);
+    });
+  });
 });

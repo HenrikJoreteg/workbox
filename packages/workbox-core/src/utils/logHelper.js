@@ -43,7 +43,7 @@ class LogHelper {
   }
 
   warn() {
-    this._print(console.warn, arguments, this.LOG_LEVELS.warn);
+    this._print(console.warn, arguments, this.LOG_LEVELS.warning);
   }
 
   error() {
